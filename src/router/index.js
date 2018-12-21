@@ -2,10 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import RouteMap from '../router/route';
 import Menu from '../component/navMenu';
+import Home from '../component/home';
 
-import Loadable from 'react-loadable';
-import Hello from '../component/hello';
-
+// import Loadable from 'react-loadable';
 
 function MyLoadingComponent() {
     return <div>Loading...</div>;
@@ -15,8 +14,6 @@ function MyLoadingComponent() {
 //     loader: () => import('../component/hello'),
 //     loading: MyLoadingComponent
 // })
-
-const Home = () => (<h1>This is home page!</h1>)
 
 const getApp = () => (
     <Router>

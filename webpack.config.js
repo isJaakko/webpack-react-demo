@@ -31,5 +31,6 @@ module.exports = {
         port: 9000,  // 设置服务器端口
         open: true,
         historyApiFallback: true
-    }
+    },
+    devtool: 'cheap-module-eval-source-map'
 }

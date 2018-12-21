@@ -1,11 +1,8 @@
-import Hello from '../component/hello';
+import About from '../component/about';
 
 export default {
-    hello: {
-        path: '/hello',
-        component: Hello
-    },
-    info: {
-        path: '/info'
+    about: {
+        path: '/about',
+        component: About
     }
 }
