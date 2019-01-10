@@ -4,17 +4,6 @@ import RouteMap from '../router/route';
 import Menu from '../component/navMenu';
 import Home from '../component/home';
 
-// import Loadable from 'react-loadable';
-
-function MyLoadingComponent() {
-    return <div>Loading...</div>;
-}
-
-// const Hello = Loadable({
-//     loader: () => import('../component/hello'),
-//     loading: MyLoadingComponent
-// })
-
 const getApp = () => (
     <Router>
         <div>
@@ -31,7 +20,6 @@ const getApp = () => (
                 }) }
                 <Route path='/' component={ Home } />
             </Switch>
-
         </div>
     </Router>
 )

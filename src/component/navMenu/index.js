@@ -9,6 +9,10 @@ const MenuItemGroup = Menu.ItemGroup;
 
 export default class NavMenu extends Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <Menu
@@ -21,7 +25,7 @@ export default class NavMenu extends Component {
                     let MenuItem = RouteMap[item];
                     return (
                         <Menu.Item key="mail" key={ `${index}${item.path}` }>
-                            <Link to={MenuItem.path}>{ item }</Link>
+                            <Link to={ MenuItem.path }>{ item }</Link>
                         </Menu.Item>)
                 }) }
             </Menu>

@@ -1,8 +1,10 @@
 import About from '../component/about';
 
-export default {
+const RouterMap = {
     about: {
         path: '/about',
         component: About
     }
 }
+
+export default RouterMap;
