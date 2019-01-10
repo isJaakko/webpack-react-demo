@@ -1,11 +1,13 @@
-import Hello from '../component/hello';
+import Gllery from '../component/gallery';
+import About from '../component/about';
 
 export default {
-    hello: {
-        path: '/hello',
-        component: Hello
+    gllery: {
+        path: '/gllery',
+        component: Gllery
     },
-    info: {
-        path: '/info'
+    about: {
+        path: '/about',
+        component: About
     }
 }

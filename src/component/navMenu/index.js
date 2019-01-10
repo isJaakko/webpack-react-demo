@@ -17,13 +17,13 @@ export default class NavMenu extends Component {
                 <Menu.Item>
                     <Link to='/'>Home</Link>
                 </Menu.Item>
-                { Object.keys(RouteMap).map((item, index) => {
+                {Object.keys(RouteMap).map((item, index) => {
                     let MenuItem = RouteMap[item];
                     return (
-                        <Menu.Item key="mail" key={ `${index}${item.path}` }>
-                            <Link to={MenuItem.path}>{ item }</Link>
+                        <Menu.Item key="mail" key={`${index}${item.path}`}>
+                            <Link to={MenuItem.path}>{item}</Link>
                         </Menu.Item>)
-                }) }
+                })}
             </Menu>
         )
     }

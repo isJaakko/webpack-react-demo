@@ -4,7 +4,7 @@ import RouteMap from '../router/route';
 import Menu from '../component/navMenu';
 
 import Loadable from 'react-loadable';
-import Hello from '../component/hello';
+import Hello from '../component/gallery';
 
 
 function MyLoadingComponent() {
