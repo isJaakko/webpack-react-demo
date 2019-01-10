@@ -1,6 +1,6 @@
 const Koa = require('koa');
 const router = require('koa-router')(); // 处理路由请求
-const bodyParser = require('koa-bodyparser');   // 解析原始 request 请求，将解析参数绑定到 ctx.request.body
+const bodyParser = require('koa-bodyparser'); // 解析原始 request 请求，将解析参数绑定到 ctx.request.body
 const path = require('path');
 const send = require('koa-send');
 const url = require('url');
@@ -10,7 +10,9 @@ const app = new Koa();
 
 const port = 9090;
 
-app.use(require('koa-static')('dist', { defer: true }));
+app.use(require('koa-static')('dist', {
+    defer: true
+}));
 
 app.use(async (ctx, next) => {
     if (/^\/api(\d)?\/*/.test(ctx.url)) {

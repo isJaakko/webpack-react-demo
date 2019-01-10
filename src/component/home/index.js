@@ -1,23 +1,12 @@
 import React, { Component } from 'react';
-import { Layout } from 'antd';
-import style from './main.css';
-const {
-    Header, Footer, Sider, Content,
-} = Layout;
+import { Alert } from 'antd';
 
-export default class TestRouter extends Component {
+export default class Home extends Component {
     render() {
-        return (<div>
-            <Layout>
-                <Content>
-                    <div className={ `content` }>
-                        <h1>This is Home!</h1>
-                    </div>
-                </Content>
-                <Footer>
-                    <div className={ `footer` }>&copy; by jaakko</div>
-                </Footer>
-            </Layout>
-        </div>)
+        return (
+            <h1>
+                Welcome!
+            </h1>
+        );
     }
 }
