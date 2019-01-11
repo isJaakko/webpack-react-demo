@@ -11,23 +11,33 @@ export default class NavMenu extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            path: window.location.pathname
+        }
+    }
+
+    componentWillMount() {
+
     }
 
     render() {
         return (
             <Menu
                 mode="horizontal"
+                defaultSelectedKeys={[this.state.path]}
             >
-                <Menu.Item>
+                <Menu.Item key={'/'}>
                     <Link to='/'>Home</Link>
                 </Menu.Item>
-                { Object.keys(RouteMap).map((item, index) => {
+                {Object.keys(RouteMap).map((item, index) => {
                     let MenuItem = RouteMap[item];
+                    console.log(MenuItem.path);
+
                     return (
-                        <Menu.Item key="mail" key={ `${index}${item.path}` }>
-                            <Link to={ MenuItem.path }>{ item }</Link>
+                        <Menu.Item key={MenuItem.path}>
+                            <Link to={MenuItem.path}>{item}</Link>
                         </Menu.Item>)
-                }) }
+                })}
             </Menu>
         )
     }

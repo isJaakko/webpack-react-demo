@@ -20,19 +20,19 @@ import Loadable from 'react-loadable';
 const getApp = () => (
     <Router>
         <div>
-            <h1>Jaakko</h1>
+            {/* <h1>Jaakko</h1> */}
             <Menu />
             <Switch>
-                { Object.keys(RouteMap).map((item, index) => {
+                {Object.keys(RouteMap).map((item, index) => {
                     let routeItem = RouteMap[item];
                     return (<Route
-                        path={ routeItem.path }
-                        component={ routeItem.component }
-                        key={ `${index}${item.path}` }
+                        path={routeItem.path}
+                        component={routeItem.component}
+                        key={`${index}${item.path}`}
                         exact
                     />)
-                }) }
-                <Route path='/' component={ Home } />
+                })}
+                <Route path='/' component={Home} />
             </Switch>
         </div>
     </Router>
