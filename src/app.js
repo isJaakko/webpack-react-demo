@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import RouteMap from '../router/route';
-import Menu from '../component/navMenu';
-import Home from '../component/home';
+import RouteMap from './component/route';
+import Menu from './component/navMenu';
+import Home from './component/home';
+// import MyMenu from './component/Menu';
 
 import Loadable from 'react-loadable';
 
@@ -15,12 +16,9 @@ import Loadable from 'react-loadable';
 //     loading: MyLoadingComponent
 // })
 
-// const Home = () => (<h1>This is home page!</h1>)
-
 const getApp = () => (
     <Router>
         <div>
-            {/* <h1>Jaakko</h1> */}
             <Menu />
             <Switch>
                 {Object.keys(RouteMap).map((item, index) => {
