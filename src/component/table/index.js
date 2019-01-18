@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Table, Button, Pagination } from 'antd';
+import ModalDemo from '../modal';
 
 const { Column } = Table;
 const PageSize = 5;
@@ -12,20 +13,44 @@ export default class TableDemo extends Component {
         this.setData = this.setData.bind(this);
         this.getData = this.getData.bind(this);
         this.changePage = this.changePage.bind(this);
+        this.changeVisible = this.changeVisible.bind(this);
         this.state = {
+            visible: false,
+            message: '',
             current: 1,
             size: PageSize,
             total: 0
         }
     }
 
-    componentWillMount() {
-        log('WillMount')
-    }
+    // componentWillMount() {
+    //     log('WillMount')
+    // }
 
-    componentDidMount() {
-        log('DidMount')
-    }
+    // componentDidMount() {
+    //     log('DidMount')
+    // }
+
+    // componentWillReceiveProps(nextProps) {
+    //     log('receiveProps!')
+    // }
+
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     log('shouldUpdate');
+    //     return true;
+    // }
+
+    // componentWillUpdate() {
+    //     log('WillUpdate')
+    // }
+
+    // componentDidUpdate() {
+    //     log('DidUpdate');
+    // }
+
+    // componentWillUnmount() {
+    //     log('unmount');
+    // }
 
     // 生成数据
     setData(length) {
@@ -67,11 +92,18 @@ export default class TableDemo extends Component {
         })
     }
 
+    // 改变弹窗状态
+    changeVisible() {
+        this.setState({
+            visible: false
+        })
+    }
+
     render() {
-        const { getData, changePage } = this;
-        const { current: currentPage, size } = this.state;
+        const { getData, changePage, changeVisible } = this;
+        const { visible, message, current: currentPage, size } = this.state;
         const dataSource = getData(currentPage, size);
-        log('render')
+        // log('render')
 
         return (<div>
             <Table
@@ -80,15 +112,30 @@ export default class TableDemo extends Component {
             >
                 <Column title="name" key='name' dataIndex='name' width={100} />
                 <Column title="age" key='age' dataIndex='age' width={80} />
-                <Column title="action" key='action' dataIndex='action' render={(tetx, record) => (
-                    <Button href="javascript:;">update state</Button>
-                )} />
+                <Column title="action" key='action' dataIndex='action' render={(text, record) => {
+                    return (
+                        <Button
+                            href="javascript:;"
+                            onClick={() => {
+                                this.setState({
+                                    visible: true,
+                                    message: record.name
+                                })
+                            }}
+                        >update state</Button>
+                    )
+                }} />
             </Table>
             <Pagination
                 total={dataSource.total}
                 defaultPageSize={size}
                 current={currentPage}
                 onChange={changePage}
+            />
+            <ModalDemo
+                visible={visible}
+                message={message}
+                onCancel={changeVisible}
             />
         </div>)
     }

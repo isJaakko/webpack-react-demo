@@ -19,12 +19,10 @@ class LoginForm extends Component {
     }
 
     check(rule, value, callback) {
-        const pattern = /[\D]/;
+        const pattern = /[0-9a-zA-Z]/;
         if (!(pattern.test(value))) {
             callback('用户名必须为字母或数字');
         }
-        console.log(rule);
-
         callback();
     }
 
