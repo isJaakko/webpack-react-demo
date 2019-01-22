@@ -19,38 +19,51 @@ export default class TableDemo extends Component {
             message: '',
             current: 1,
             size: PageSize,
-            total: 0
+            total: 0,
         }
     }
 
-    // componentWillMount() {
-    //     log('WillMount')
+    // static getDerivedStateFromProps(props, state) {
+    //     console.log('getDerivedStateFromProps');
+    //     return null;
     // }
 
-    // componentDidMount() {
-    //     log('DidMount')
+    componentWillMount() {
+        log('WillMount')
+    }
+
+    componentDidMount() {
+        log('DidMount')
+    }
+
+    componentWillReceiveProps(nextProps) {
+        log('receiveProps!')
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        log('shouldUpdate');
+        return true;
+    }
+
+    componentWillUpdate() {
+        log('WillUpdate')
+    }
+
+    // getSnapshotBeforeUpdate(prevProps, prevState) {
+    //     log('getSnapshotBeforeUpdate');
+    //     return {
+    //         name: 'jaakko'
+    //     }
     // }
 
-    // componentWillReceiveProps(nextProps) {
-    //     log('receiveProps!')
-    // }
+    componentDidUpdate(nextProps, nextState, snapshot) {
+        log('DidUpdate');
+        // log(nextState, this.state, snapshot);
+    }
 
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     log('shouldUpdate');
-    //     return true;
-    // }
-
-    // componentWillUpdate() {
-    //     log('WillUpdate')
-    // }
-
-    // componentDidUpdate() {
-    //     log('DidUpdate');
-    // }
-
-    // componentWillUnmount() {
-    //     log('unmount');
-    // }
+    componentWillUnmount() {
+        log('unmount');
+    }
 
     // 生成数据
     setData(length) {
@@ -93,17 +106,19 @@ export default class TableDemo extends Component {
     }
 
     // 改变弹窗状态
-    changeVisible() {
+    changeVisible(visible) {
+        console.log('setState');
+
         this.setState({
-            visible: false
+            visible
         })
     }
 
     render() {
-        const { getData, changePage, changeVisible } = this;
+        const { getData, changePage, changeVisible, updateMessage } = this;
         const { visible, message, current: currentPage, size } = this.state;
         const dataSource = getData(currentPage, size);
-        // log('render')
+        log('render')
 
         return (<div>
             <Table
@@ -117,8 +132,8 @@ export default class TableDemo extends Component {
                         <Button
                             href="javascript:;"
                             onClick={() => {
+                                changeVisible(true);
                                 this.setState({
-                                    visible: true,
                                     message: record.name
                                 })
                             }}
@@ -126,6 +141,7 @@ export default class TableDemo extends Component {
                     )
                 }} />
             </Table>
+
             <Pagination
                 total={dataSource.total}
                 defaultPageSize={size}
@@ -136,6 +152,7 @@ export default class TableDemo extends Component {
                 visible={visible}
                 message={message}
                 onCancel={changeVisible}
+                updateMessage={updateMessage}
             />
         </div>)
     }

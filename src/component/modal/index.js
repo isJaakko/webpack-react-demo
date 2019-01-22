@@ -8,7 +8,7 @@ export default class ModalDemo extends Component {
     }
 
     // componentWillReceiveProps(nextProps) {
-    //     log('receiveProps!')
+    //     log('child receiveProps!')
     // }
 
     // shouldComponentUpdate(nextProps, nextState) {
@@ -19,7 +19,6 @@ export default class ModalDemo extends Component {
     // componentWillUpdate() {
     //     log('WillUpdate')
     // }
-    
 
     render() {
         const { message, visible, onCancel } = this.props;
