@@ -17,7 +17,7 @@ export default class NavMenu extends Component {
     }
 
     componentWillMount() {
-
+        
     }
 
     render() {
