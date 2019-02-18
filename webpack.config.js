@@ -17,16 +17,21 @@ module.exports = {
             use: 'babel-loader'
         }, {
             test: /\.css$/,
-            use: ['style-loader', 'css-loader']
-            // use: [
-            //     { loader: 'style-loader' },
-            //     {
-            //         loader: 'css-loader',
-            //         options: {
-            //             modules: true
-            //         }
-            //     }
-            // ]
+            use: [{
+                loader: 'style-loader'
+            }, {
+                loader: 'css-loader',
+                options: {
+                    modules: true,
+                    importLoaders: 1,
+                    localIdentName: '[path]---[local]---[hash:base64:5]'
+                }
+            }],
+            exclude: [path.resolve(__dirname, 'node_modules')]
+        }, {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader'],
+            include: [path.resolve(__dirname, 'node_modules')]
         }]
     },
     plugins: [
