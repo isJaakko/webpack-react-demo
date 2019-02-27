@@ -17,6 +17,7 @@ module.exports = {
             use: 'babel-loader'
         }, {
             test: /\.css$/,
+<<<<<<< HEAD
             // use: ['style-loader', 'css-loader']
             use: [
                 { loader: 'style-loader' },
@@ -28,6 +29,18 @@ module.exports = {
                         localIdentName: '[path]---[local]---[hash:base64:5]'
                     }
                 }],
+=======
+            use: [{
+                loader: 'style-loader'
+            }, {
+                loader: 'css-loader',
+                options: {
+                    modules: true,
+                    importLoaders: 1,
+                    localIdentName: '[path]---[local]---[hash:base64:5]'
+                }
+            }],
+>>>>>>> c59000e29e820f6b6b66692fdc13218eab4d4e65
             exclude: [path.resolve(__dirname, 'node_modules')]
         }, {
             test: /\.css$/,
