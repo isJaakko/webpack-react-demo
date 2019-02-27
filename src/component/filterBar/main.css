@@ -1,0 +1,9 @@
+.scorePanel {
+    /* display: flex; */
+    flex-direction: row;
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: space-around;
+}

@@ -1,0 +1,31 @@
+.menuBody {
+    height: 100%;
+}
+
+.logo {
+    text-align: center;
+    color: #fff;
+    height: 60px;
+    line-height: 60px;
+}
+
+.logo_link {
+    color: #fff;
+    text-decoration: none;
+}
+.logo_link:focus {
+    text-decoration: none;
+}
+
+.logo_img{
+    height: 32px;
+    width: 32px;
+}
+
+.logo_text {
+    color: #fff;
+}
+
+.logo_text_hidden {
+    display: none;
+}

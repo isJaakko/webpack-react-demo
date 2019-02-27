@@ -1,11 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import RouteMap from './component/route';
-import Menu from './component/navMenu';
-import Home from './component/home';
+import { BrowserRouter as Router, browserHistory as History, Route, Switch, Redirect } from 'react-router-dom';
+import App from './view/app';
 // import MyMenu from './component/Menu';
-
-import Loadable from 'react-loadable';
 
 // function MyLoadingComponent() {
 //     return <div>Loading...</div>;
@@ -16,24 +12,12 @@ import Loadable from 'react-loadable';
 //     loading: MyLoadingComponent
 // })
 
-const getApp = () => (
-    <Router>
-        <div>
-            <Menu />
-            <Switch>
-                {Object.keys(RouteMap).map((item, index) => {
-                    let routeItem = RouteMap[item];
-                    return (<Route
-                        path={routeItem.path}
-                        component={routeItem.component}
-                        key={`${index}${item.path}`}
-                        exact
-                    />)
-                })}
-                <Route path='/' component={Home} />
-            </Switch>
-        </div>
+const getApp = () => (<div>
+    <Router history={History}>
+        <Switch>
+            <Route path='/' component={App} />
+        </Switch>
     </Router>
-)
+</div>)
 
 export default getApp;

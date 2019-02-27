@@ -28,43 +28,6 @@ export default class TableDemo extends Component {
     //     return null;
     // }
 
-    componentWillMount() {
-        log('WillMount')
-    }
-
-    componentDidMount() {
-        log('DidMount')
-    }
-
-    componentWillReceiveProps(nextProps) {
-        log('receiveProps!')
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        log('shouldUpdate');
-        return true;
-    }
-
-    componentWillUpdate() {
-        log('WillUpdate')
-    }
-
-    // getSnapshotBeforeUpdate(prevProps, prevState) {
-    //     log('getSnapshotBeforeUpdate');
-    //     return {
-    //         name: 'jaakko'
-    //     }
-    // }
-
-    componentDidUpdate(nextProps, nextState, snapshot) {
-        log('DidUpdate');
-        // log(nextState, this.state, snapshot);
-    }
-
-    componentWillUnmount() {
-        log('unmount');
-    }
-
     // 生成数据
     setData(length) {
         const dataSource = [];

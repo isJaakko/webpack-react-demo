@@ -1,0 +1,19 @@
+.statusCard {
+    display: flex;
+    justify-content: space-around;
+    max-width: 300px;
+    /* border: 1px solid #e8e8e8; */
+    border-radius: 2px;
+}
+
+.status {
+    font-size: 1.2rem;
+    font-weight: bolder;
+    color: rgb(64, 169, 255);
+}
+
+.score {
+    font-size: 1.2rem;
+    font-weight: bolder;
+    color: #ffa940;
+}

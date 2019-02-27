@@ -1,8 +1,9 @@
 const Koa = require('koa');
 const path = require('path');
 const serve = require('koa-static');    // 静态资源操作
-const router = require('koa-router')(); // 注意 router 的引入方式
+// const router = require('koa-router')(); // 注意 router 的引入方式
 const fs = require('fs');   // 文件操作
+const router = require('./routes');
 const app = new Koa();
 
 const port = 3030;
@@ -37,20 +38,7 @@ app.use(async (ctx, next) => {
     await next();
 })
 
-router.get('/api/about', async (ctx, next) => {
-
-    ctx.type = 'json';
-    ctx.body = {
-        status: 0,
-        data: {
-            name: "jaakko",
-            age: 21
-        }
-    };
-    await next();
-})
-
-app.use(router.routes());   // 注意 router 使用方式
+app.use(router.routes()).use(router.allowedMethods());   // 注意 router 使用方式
 app.listen(port);
 console.log(`\nserver is start at port ${port}...\n`);
 

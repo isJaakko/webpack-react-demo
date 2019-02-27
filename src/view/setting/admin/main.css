@@ -1,0 +1,20 @@
+.form {
+    margin: 30px;
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.btn_confirm {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.btn_cancel {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}

@@ -17,16 +17,22 @@ module.exports = {
             use: 'babel-loader'
         }, {
             test: /\.css$/,
-            use: ['style-loader', 'css-loader']
-            // use: [
-            //     { loader: 'style-loader' },
-            //     {
-            //         loader: 'css-loader',
-            //         options: {
-            //             modules: true
-            //         }
-            //     }
-            // ]
+            // use: ['style-loader', 'css-loader']
+            use: [
+                { loader: 'style-loader' },
+                {
+                    loader: 'css-loader',
+                    options: {
+                        modules: true,
+                        importLoaders: 1,
+                        localIdentName: '[path]---[local]---[hash:base64:5]'
+                    }
+                }],
+            exclude: [path.resolve(__dirname, 'node_modules')]
+        }, {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader'],
+            include: [path.resolve(__dirname, 'node_modules')]
         }]
     },
     plugins: [
@@ -40,6 +46,11 @@ module.exports = {
         port: 9000,  // 设置服务器端口
         open: true,
         historyApiFallback: true
+    },
+    resolve: {
+        alias: {
+            component: path.resolve(__dirname, 'src/component/')
+        }
     },
     devtool: 'cheap-module-eval-source-map'
 }
